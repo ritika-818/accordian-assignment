@@ -1,0 +1,25 @@
+@import "./variables";
+
+@mixin flex($display, $justify, $align){
+    display: $display;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin accordionLarge($maxWidth){
+    @media all and (max-width: $large) {
+        width: $maxWidth;
+    }
+}
+
+@mixin accordionTbleSmall($table){
+    @media all and (max-width: $small) {
+            table-layout: $table;
+    }
+}
+
+@mixin accordionSmall($display){
+    @media all and (max-width: $small) {
+        display: $display;
+    } 
+}

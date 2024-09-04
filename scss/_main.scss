@@ -1,0 +1,83 @@
+@import "./mixin";
+@import "./mixin";
+@import "./variables";
+
+.accordion {
+    width: 50%;
+    margin: 50px auto;
+    background: $accordionColor;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px $shadow;
+    @include accordionLarge(80%);
+    
+}
+
+.accordion-item {
+    border-bottom: 1px solid $accordionItem ;
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.accordion-header {
+    @include flex(flex, space-between ,center);
+    padding: 20px;
+    cursor: pointer;
+    .number, .country-name{
+        font-size: 24px;
+        color: $item;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    .country-name{
+        color: $border;
+        font-weight: 100;
+    }
+    .accordion-icon {
+        font-size: 24px;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 20px;
+    table {
+        margin: 10px 10px;
+            border: 1px solid $border;
+            border-collapse: collapse;
+            @include accordionTbleSmall(fixed);
+        td {
+            color: $item;
+            font-size: larger;
+            font-weight: bold;
+            padding: 10px 10px;
+            border-bottom: 1px solid $accordionItem;
+            max-width: 200px;
+            border: 1px solid $border;
+            border-collapse: collapse;
+            &:nth-child(3){
+                @include accordionSmall(none);
+            }
+        }
+        a {
+            color: $border;
+            text-decoration: none;
+            font-weight: 500;
+            &:hover {
+                color: $item;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+
+
+
